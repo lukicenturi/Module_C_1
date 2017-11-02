@@ -1,0 +1,535 @@
+/*This is the global style*/
+
+*{
+    box-sizing:border-box;
+    outline:none;
+    max-width:100%;
+    font-family:Hobo Std;
+    color:white;
+    user-select:none;
+}
+
+html,body{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    background: #070013;
+}
+
+/*This is the style for container 960 x 600 */
+
+.container{
+    width:960px;
+    height:600px;
+    position:relative;
+    overflow:hidden;
+}
+
+.container > div{
+    position:absolute;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.9);
+}
+
+.container > div.active{
+    display:flex;
+}
+
+/*This is resetting the z-index for some page*/
+
+#ready,#modal,#over{
+    z-index:100;
+}
+
+
+/*This is style for header logo*/
+.header{
+    background:orangered;
+    display:flex;
+    align-items:center;
+    align-items:center;
+    height:70px;
+    border-radius:100000px;
+    font-size:1.5em;
+    padding:0px 20px;
+}
+
+.logo{
+    height:100px;
+}
+
+
+/*This is style for instructions and its animation*/
+ul{
+    width:60%;
+    padding:0px;
+    margin:0px;
+}
+
+ul li, #start{
+    list-style-type:none;
+    font-size:0.9em;
+    margin-bottom:5px;
+    transform-origin:50% 0px;
+    animation:0.5s li;
+    transform:scale(0);
+    animation-fill-mode:forwards;
+}
+
+li:nth-child(1){animation-delay:800ms}
+li:nth-child(2){animation-delay:900ms}
+li:nth-child(3){animation-delay:1000ms}
+li:nth-child(4){animation-delay:1100ms}
+li:nth-child(5){animation-delay:1200ms}
+li:nth-child(6){animation-delay:1300ms}
+li:nth-child(7){animation-delay:1400ms}
+li:nth-child(8){animation-delay:1500ms}
+li:nth-child(9){animation-delay:1600ms}
+li:nth-child(10){animation-delay:1700ms}
+li:nth-child(11){animation-delay:1800ms}
+li:nth-child(12){animation-delay:1900ms}
+li:nth-child(13){animation-delay:2000ms}
+#start{animation-delay:2200ms}
+
+@keyframes li{
+    to{
+        transform:none;
+    }
+}
+
+#ready .header{
+    transform:translateX(-500px);
+    animation:0.5s toleft;
+    animation-fill-mode:forwards;
+}
+
+/*This is animation for header*/
+@keyframes toleft{
+    to{
+        transform:none;
+    }
+}
+
+/*This is the main style of the button */
+button{
+    background-color:orangered;
+    font-size:1.4em;
+    padding:10px 20px;
+    border-radius:100000px;
+    border:3px solid deeppink;
+    box-shadow:0 0 0 3px white;
+    transition:0.5s all;
+    position:relative;
+    height:50px;
+    cursor:pointer;
+}
+
+button:disabled{
+    background:gray;
+}
+button:disabled:hover{
+    background:gray;
+}
+
+button:hover{
+    background-color:#f19e0d;
+}
+
+button:after{
+    content:'';
+    border-radius:1000px;
+    width:0px;
+    height:0px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    background:rgba(255,255,255,0.4);
+    transform:translateX(-50%) translateY(-50%);
+    opacity:0;
+}
+
+button:active:after{
+    width:50px;
+    height:50px;
+    opacity:1;
+    animation: button 1s;
+}
+
+@keyframes button{
+    0%{
+        width:0px;
+        height:0px;
+        opacity:0
+    }
+    50%{
+        width:50px;
+        height:50px;
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+    }
+}
+
+/*This is the style for the gameboard*/
+#gameboard{
+    position:relative;
+    background:#1d0053;
+}
+
+#gameboard > div{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+}
+
+.background > div{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    animation-name:background;
+    animation-timing-function:linear;
+    background-size:100% 100%;
+    background-repeat:repeat;
+    background-position-x:0px;
+    animation-iteration-count:infinite;
+}
+
+/*This is the source of each background in the game*/
+#bg-1{
+    background-image:url('../images/planets/planet_1.png');
+    animation-duration:20s;
+}
+#bg-2{
+    background-image:url('../images/planets/planet_2.png');
+    animation-duration:17s;
+}
+#bg-3{
+    background-image:url('../images/planets/planet_3.png');
+    animation-duration:14s;
+}
+#bg-4{
+    background-image:url('../images/planets/planet_4.png');
+    animation-duration:11s;
+}
+#bg-5{
+    background-image:url('../images/planets/planet_5.png');
+    animation-duration:9s;
+}
+#bg-6{
+    background-image:url('../images/planets/planet_6.png');
+    animation-duration:7s;
+}
+#bg-7{
+    background-image:url('../images/planets/planet_7.png');
+    animation-duration:30s;
+}
+#bg-8{
+    background-image:url('../images/planets/planet_8.png');
+    animation-duration:35s;
+}
+
+.button > div{
+    display:flex;
+    position:absolute;
+}
+
+.button button{
+    width:50px;
+    height:50px;
+    align-items:center;
+    margin:0px 5px;
+    min-width:50px;
+    min-height:50px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:23px;
+
+}
+
+/*This is style for button control in game */
+.top-left{
+    left:10px;
+    top:10px;
+}
+
+.top-right{
+    right: 10px;
+    top:10px;
+}
+
+.top-center{
+    top:10px;
+    left:50%;
+    transform:translateX(-50%);
+    height:40px;
+    margin-top:40px;
+    display:flex;
+    align-items:center;
+    background:orangered;
+    border-radius:10000px;
+}
+
+.top-center > div{
+    display:flex;
+    align-items:center;
+}
+
+.top-center > div > div{
+    padding:10px;
+}
+
+#timer, #score{
+    background: #6d0014;
+    padding:5px;
+}
+
+.bottom-left{
+    bottom:10px;
+    left:10px;
+}
+
+.bottom-left button{
+    position:absolute;
+    bottom:50px;
+}
+
+.arrow{
+    background-image:url('../images/arrow.png');
+    transform-origin:70px 50%;
+}
+
+.arrow:nth-child(2){ transform:rotate(90deg); }
+.arrow:nth-child(3){ transform:rotate(180deg); }
+.arrow:nth-child(4){ transform:rotate(270deg); }
+
+.bottom-right{
+    bottom:10px;
+    right:10px;
+    display:flex;
+    align-items:center;
+}
+
+
+/*This is the style for fuel counter*/
+.bar{
+    height:30px;
+    width:150px;
+    background:#ce2121;
+    border-top-left-radius:100000px;
+    border-bottom-left-radius:100000px;
+    display:flex;
+    position:relative;
+    justify-content:flex-end;
+    overflow:hidden;
+}
+
+.fill{
+    width:50%;
+    background:#7d1010;
+    transition:0.5s width;
+}
+
+#fuel{
+    position:absolute;
+    right:10px;
+    top:5px;
+}
+
+
+#font-min{
+    background-image:url('../images/font-min.png');
+}
+
+#font-plus{
+    background-image:url('../images/font-plus.png');
+}
+
+#timer + div{
+    background-image:url('../images/timer.png');
+    width:30px;
+    height:30px;
+    padding:30px;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+#sound[data-muted="0"]{
+     background-image:url('../images/unmute.png');
+ }
+
+#sound[data-muted="1"]{
+    background-image:url('../images/mute.png');
+}
+
+#pause[data-pause="0"]{
+    background-image:url('../images/arrow.png');
+    transform:rotate(180deg);
+}
+
+#pause[data-pause="1"]{
+    background-image:url('../images/pause.png');
+}
+
+/*This is the style for ranking table*/
+
+table{
+    width:60%;
+    text-align:center;
+    border-collapse:collapse
+}
+
+table thead tr{
+    background:orangered;
+}
+
+table th, table td{
+    padding:10px;
+}
+
+table tbody tr{
+    border-bottom:1px solid orangered;
+}
+
+
+.form{
+    display:flex;
+    flex-direction:column;
+}
+
+.form input{
+    padding:15px 20px;
+    font-size:1em;
+    color:black;
+    border:none;
+    margin-bottom:10px;
+    border-radius:1000px;
+}
+
+.element > div{
+    position:absolute;
+    background-repeat:no-repeat;
+}
+
+#player, .enemy, .friend{
+    animation:1s sprite steps(3) infinite;
+}
+
+#player{
+    background-image:url('../images/player.png');
+    width:116px;
+    height:58px;
+    top:300px;
+    left:40px;
+    transition:0.5s transform;
+}
+
+.enemy{
+    background-image:url('../images/enemy.png');
+    top:200px;
+    left:400px;
+    width:80px;
+    height:80px;
+}
+
+.friend{
+    background-image:url('../images/friend.png');
+    top:400px;
+    left:500px;
+    width:80px;
+    height:80px;
+}
+
+.asteroid{
+    background-image:url('../images/asteroid_1.png');
+    top:400px;
+    left:700px;
+    width:80px;
+    height:60px;
+    background-size:100% 100%;
+    animation:2s rotate infinite linear;
+}
+
+.asteroid[data-bg="1"]{
+    background-image:url('../images/asteroid_2.png');
+    top:100px;
+    left:750px;
+}
+
+.fuel{
+    background-image:url('../images/fuel.png');
+    top:40px;
+    left:200px;
+    width:40px;
+    background-size:100% 100%;
+    height:60px;
+    animation:3s rotate infinite linear;
+}
+
+.bullet{
+    width:20px;
+    height:8px;
+    background:deepskyblue;
+    border:2px solid lightskyblue;
+    top:335px;
+    left:206px;
+    border-radius:1000px;
+}
+
+.explosion{
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:100px;
+    left:100px;
+    animation:1s scale linear;
+    animation-fill-mode: forwards;
+    background-image:url('../images/explosion.png');
+    background-size:100% 100%;
+}
+
+.bullet.red{
+    background:red;
+    border:2px solid orangered;
+    top:240px;
+    left:380px;
+}
+
+@keyframes sprite{
+    to{
+        background-position-x:100%;
+    }
+}
+
+@keyframes background{
+    to{
+        background-position-x:-960px;
+    }
+}
+
+@keyframes rotate{
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+@keyframes scale{
+    to{
+        transform:scale(0);
+    }
+}
